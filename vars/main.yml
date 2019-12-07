@@ -1,0 +1,7 @@
+---
+
+snapd_package : snapd
+
+repo_snap_opensuse: "https://download.opensuse.org/repositories/system:/snappy/openSUSE_Leap_15.0/"
+
+repo_snap_opensuse_tumbleweed: "http://download.opensuse.org/repositories/system:/snappy/openSUSE_Tumbleweed/"

@@ -1,0 +1,16 @@
+---
+
+- name: Start Snapd
+  systemd:
+    name: snapd
+    state: started
+    enabled: yes
+  become: true
+
+
+- name: Start Snapd Apparmor
+  systemd:
+    name: snapd.apparmor
+    state: started
+    enabled: yes
+  become: true

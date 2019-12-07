@@ -1,0 +1,37 @@
+---
+
+
+- name: "Adicionando o repositório do Snap = > {{ repo_snap_opensuse }}"
+  zypper_repository:
+    name: snappy
+    repo: "{{ repo_snap_opensuse }}"
+    state: present
+    auto_import_keys: yes
+    overwrite_multiple: yes
+  become: true
+  tags:
+    - repo
+    - snapd
+
+
+- name: "Atualizando todos os repositorios"
+  zypper_repository:
+    repo: '*'
+    runrefresh: yes
+    auto_import_keys: yes
+  become: true
+  tags:
+    - repo
+    - snapd
+
+
+- name: "Instalando o pacote {{ snapd_package }}"
+  zypper:
+    name: "{{ snapd_package }}"
+    state: present
+    force: yes
+  become: true
+  # notify:
+  #   - Start Snapd
+  tags:
+    - snapd

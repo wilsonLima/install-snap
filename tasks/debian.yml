@@ -1,0 +1,14 @@
+---
+
+# Pacotes Dev
+
+- name: "Instalando o pacote {{ snapd_package }}"
+  apt:
+    name: "{{ snapd_package }}"
+    state: present
+    update_cache: yes
+  become: true
+  # notify:
+  #   - Start Snapd
+  tags:
+    - snapd

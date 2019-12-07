@@ -1,0 +1,23 @@
+---
+
+- name: "Instalando o pacote {{ snapd_package }}"
+  dnf:
+    name: "{{ snapd_package }}"
+    state: present
+    disable_gpg_check: yes
+  become: true
+  # notify:
+  #   - Start Snapd
+  tags:
+    - snapd
+
+
+- name: "Criar um link simbólico "
+  file:
+    src: "/var/lib/snapd/snap"
+    dest: "/snap"
+    state: link
+  become: true
+  tags:
+    - fix
+  
