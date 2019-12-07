@@ -6,7 +6,7 @@ Role do Ansible com passos para a instalação do pacote Snap.
 Distribuições Suportadas pela Role
 ------------
 
-- Fedora 31 ou inferior
+- Fedora 30 ou inferior
 - Linux Mint 19.2 ou inferior
 - openSUSE Leap 15.0 ou superior
 - Ubuntu 18.04 ou superior

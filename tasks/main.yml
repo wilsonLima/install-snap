@@ -42,3 +42,25 @@
   tags:
     - snapd
     - fix
+
+
+- name: "FIX - Iniciando o serviço snapd.apparmor"
+  when: os_default is not defined and ansible_distribution == "openSUSE Tumbleweed"
+  shell: "systemctl start snapd.apparmor"
+  args:
+    executable: /bin/bash
+  become: true
+  tags:
+    - snapd
+    - fix
+
+
+- name: "FIX - Habilitando o serviço snapd.apparmor"
+  when: os_default is not defined and ansible_distribution == "openSUSE Tumbleweed"
+  shell: "systemctl enable snapd.apparmor"
+  args:
+    executable: /bin/bash
+  become: true
+  tags:
+    - snapd
+    - fix
