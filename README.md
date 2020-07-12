@@ -7,7 +7,7 @@ Distribuições Suportadas pela Role
 ------------
 
 - Fedora 30 ou superior
-- Linux Mint 19.0 ou superior
+- Linux Mint 19.1 ou superior
 - openSUSE Leap 15.0 ou superior
 - Ubuntu 18.04 ou superior
 
@@ -18,6 +18,7 @@ Tags da Role
 - main: Tag a ser utilizada em conjunto com outras tags, se alguma tag for especificada no comando.
   
 - repo: Inclui todos os repositórios da role no Sistema.
+- deps: Instala os pacotes de dependências.
   
 - snapd: Instala o pacote snapd.
 - fix: Realiza ajustes necessários após a instalação do pacote.
@@ -70,4 +71,4 @@ Comando para executar a tag "repo" (em caso de uso de tags, a tag "main" é obri
 License
 -------
 
-MIT License
+MIT

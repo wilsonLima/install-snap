@@ -1,6 +1,15 @@
 ---
 
-# Pacotes Dev
+
+- name: 'Executando o comando => rm /etc/apt/preferences.d/nosnap.pref'
+  shell: 'rm /etc/apt/preferences.d/nosnap.pref'
+  ignore_errors: yes
+  become: true
+  tags:
+    - fix
+    - snapd
+
+
 
 - name: "Instalando o pacote {{ snapd_package }}"
   apt:
@@ -8,7 +17,5 @@
     state: present
     update_cache: yes
   become: true
-  # notify:
-  #   - Start Snapd
   tags:
     - snapd

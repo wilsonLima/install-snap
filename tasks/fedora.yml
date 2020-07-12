@@ -1,13 +1,22 @@
 ---
 
+- name: "Instalando as Dependências do Snap"
+  dnf:
+    name: "{{ deps }}"
+    state: present
+    disable_gpg_check: yes
+  become: true
+  tags:
+    - deps
+    - snapd
+
+
 - name: "Instalando o pacote {{ snapd_package }}"
   dnf:
     name: "{{ snapd_package }}"
     state: present
     disable_gpg_check: yes
   become: true
-  # notify:
-  #   - Start Snapd
   tags:
     - snapd
 

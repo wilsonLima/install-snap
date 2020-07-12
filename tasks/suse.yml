@@ -2,16 +2,34 @@
 
 
 - name: "Adicionando o repositório do Snap = > {{ repo_snap_opensuse }}"
+  when: not ansible_distribution == "openSUSE Tumbleweed"
   zypper_repository:
     name: snappy
     repo: "{{ repo_snap_opensuse }}"
     state: present
+    runrefresh: yes
     auto_import_keys: yes
     overwrite_multiple: yes
   become: true
   tags:
     - repo
     - snapd
+
+
+- name: "Adicionando o repositório do Snap = > {{ repo_snap_opensuse_tumbleweed }}"
+  when: ansible_distribution == "openSUSE Tumbleweed"
+  zypper_repository:
+    name: snappy
+    repo: "{{ repo_snap_opensuse_tumbleweed }}"
+    state: present
+    runrefresh: yes
+    auto_import_keys: yes
+    overwrite_multiple: yes
+  become: true
+  tags:
+    - repo
+    - snapd
+
 
 
 - name: "Atualizando todos os repositorios"
@@ -29,9 +47,7 @@
   zypper:
     name: "{{ snapd_package }}"
     state: present
-    force: yes
+    update_cache: yes
   become: true
-  # notify:
-  #   - Start Snapd
   tags:
     - snapd
